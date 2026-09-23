@@ -3,247 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Expresión Escrita II · Objetivos de investigación</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.js"></script>
-<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<title>Cargando Expresión Escrita II…</title>
 <style>
-:root{
- --bg:#F7F8FC;--surface:#fff;--soft:#F0F2F8;--text:#171A2B;--muted:#62677A;--border:#DFE2EC;
- --primary:#6C45FF;--primaryH:#5732E8;--primarySoft:#EEE9FF;--cyan:#007FAF;--cyanSoft:#DDF7FF;
- --pink:#E83E8C;--pinkSoft:#FFE5F1;--lime:#5A7F16;--limeSoft:#EDF6D8;--yellow:#9A6700;--yellowSoft:#FFF1C2;
- --err:#D94D62;--errSoft:#FFE6EB;--grad:linear-gradient(135deg,#6C45FF 0%,#8B5CF6 45%,#007FAF 100%);
- --r1:24px;--r2:16px;--shadow:0 8px 26px -16px rgba(23,26,43,.24);--pop:0 18px 44px -18px rgba(108,69,255,.38)
-}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif}
-button,input,textarea{font:inherit}button{cursor:pointer}h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif}.hidden{display:none!important}
-#root{min-height:100vh}
-.btn{border:none;border-radius:12px;padding:11px 16px;font-weight:800;font-size:12.5px;display:inline-flex;align-items:center;gap:7px;transition:.15s}.btn:active{transform:scale(.98)}.btn svg{width:15px}
-.btn.primary{background:var(--primary);color:#fff}.btn.primary:hover{background:var(--primaryH)}.btn.white{background:#fff;color:var(--primaryH)}
-.btn.secondary{background:var(--soft);color:var(--text);border:1px solid var(--border)}.btn.ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}.btn.warn{background:var(--yellowSoft);color:#7c5900}
-.card{background:#fff;border:1px solid var(--border);border-radius:var(--r1);padding:22px;box-shadow:var(--shadow)}
-.errorMsg{background:var(--errSoft);color:#9b3546;border-radius:12px;padding:11px 12px;font-size:11.5px;margin-top:10px}
-.note{font-size:11px;color:var(--muted);line-height:1.5}.phase{background:var(--primarySoft);color:#4F38B9;border-radius:12px;padding:10px 12px;font-size:11.5px;font-weight:800}
-.roleStart{max-width:920px;margin:auto;padding:34px 20px 80px}.brandStart{display:flex;align-items:center;gap:12px;margin-bottom:24px}.brandIcon{width:50px;height:50px;border-radius:15px;background:var(--grad);color:#fff;display:grid;place-items:center;box-shadow:var(--pop)}
-.brandStart h1{margin:0;font-size:23px}.brandStart p{margin:3px 0 0;color:var(--muted);font-size:12px}.welcome{background:var(--grad);color:#fff;border-radius:30px;padding:34px;box-shadow:var(--pop)}
-.welcome h2{font-size:38px;line-height:1.05;margin:0 0 10px}.welcome p{max-width:700px;line-height:1.6;opacity:.93}.roleGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.roleCard{background:#fff;border:1px solid var(--border);border-radius:20px;padding:22px;text-align:left;box-shadow:var(--shadow)}.roleCard .ico{width:42px;height:42px;border-radius:13px;background:var(--primarySoft);color:var(--primary);display:grid;place-items:center;margin-bottom:12px}.roleCard h3{margin:0 0 6px}.roleCard p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(247,248,252,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{display:flex;align-items:center;gap:9px}.brand .ico{width:38px;height:38px;border-radius:12px;background:var(--grad);color:#fff;display:grid;place-items:center}.brand h1{font-size:15px;margin:0}.brand small{display:block;font-size:10.5px;color:var(--muted)}
-.progressWrap{display:flex;align-items:center;gap:8px;flex:1;max-width:420px}.track{height:7px;background:#E4E7F0;border-radius:99px;overflow:hidden;flex:1}.track i{display:block;height:100%;background:var(--grad);width:0;transition:.3s}.ptxt{font-size:10.5px;color:var(--muted);font-weight:800}
-.roomPill{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:7px 11px;font-size:11px;font-weight:800}.roomPill strong{color:var(--primary);letter-spacing:1px}.onlineDot{width:8px;height:8px;border-radius:50%;background:#bbb}.onlineDot.on{background:#5BB980}
-.teacherStage{width:min(1180px,100%);margin:auto;padding:24px 20px 70px}.kicker{display:inline-flex;align-items:center;gap:6px;background:var(--primarySoft);color:var(--primary);padding:7px 10px;border-radius:999px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.45px}
-.head h2{font-size:34px;line-height:1.08;margin:9px 0 7px}.head p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55;max-width:900px}
-.hero{background:var(--grad);color:#fff;border-radius:30px;padding:36px;box-shadow:var(--pop)}.hero h2{font-size:44px;line-height:1.02;margin:9px 0 12px;max-width:800px}.hero p{font-size:16.5px;line-height:1.6;max-width:830px;opacity:.94}.hero .ey{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:800;opacity:.8}
-.actions,.footerNav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.footerNav{justify-content:space-between;margin-top:22px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.call{border-radius:16px;padding:17px;border:1px solid var(--border);background:#fff}.call b{display:block;margin-bottom:5px}.call span{font-size:12px;color:var(--muted);line-height:1.45}.call.cyan{background:var(--cyanSoft)}.call.lime{background:var(--limeSoft)}.call.yellow{background:var(--yellowSoft)}.call.purple{background:var(--primarySoft)}.call.pink{background:var(--pinkSoft)}
-.goal{font-family:'Space Grotesk';font-size:22px;line-height:1.55}.goal mark{padding:2px 5px;border-radius:6px}.v{background:var(--primarySoft);color:#5732E8}.q{background:var(--cyanSoft);color:var(--cyan)}.c{background:var(--yellowSoft);color:var(--yellow)}
-.modelSteps{display:grid;gap:11px}.mstep{display:grid;grid-template-columns:38px 1fr;gap:10px}.mstep .n{width:38px;height:38px;border-radius:11px;background:var(--grad);color:white;display:grid;place-items:center;font-weight:800}.mstep .body{background:#fff;border:1px solid var(--border);border-radius:13px;padding:12px 14px}.mstep .body b{display:block}.mstep .body span{font-size:12px;color:var(--muted)}
-.roundCards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.roundCard{background:#fff;border:1px solid var(--border);border-radius:17px;padding:16px}.roundCard .rn{font-family:'Space Grotesk';font-size:25px;color:var(--primary);font-weight:700}.roundCard h4{margin:7px 0 5px}.roundCard p{margin:0;color:var(--muted);font-size:11.5px;line-height:1.45}.roundCard.tie{background:linear-gradient(145deg,#FFF8E2,#fff);border-color:#ECD992}
-.quizLayout{display:grid;grid-template-columns:1.08fr .92fr;gap:16px;margin-top:16px}.qcard,.liveCard{background:#fff;border:1px solid var(--border);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
-.qtop{display:flex;justify-content:space-between;gap:8px;margin-bottom:13px}.qbadge{background:var(--primarySoft);color:var(--primary);border-radius:999px;padding:6px 9px;font-size:10.5px;font-weight:800}.qcount{font-size:10.5px;color:var(--muted);font-weight:800}
-.context{background:var(--soft);border-radius:13px;padding:12px 14px;font-size:12.5px;line-height:1.5;margin-bottom:12px}.qtext{font-family:'Space Grotesk';font-size:24px;line-height:1.35;margin:0 0 14px}
-.options{display:grid;gap:9px}.opt{border:1.5px solid var(--border);border-radius:12px;padding:13px 14px;background:#fff;text-align:left;font-weight:700;display:flex;gap:10px}.letter{width:24px;height:24px;border-radius:7px;background:var(--soft);display:grid;place-items:center;font-size:10px;flex:0 0 auto}.opt.correct{border-color:#94C6A6;background:var(--limeSoft)}
-.helpPanel,.explainPanel{display:none;border-radius:13px;padding:13px 14px;margin-top:10px;font-size:12.5px;line-height:1.5}.helpPanel.show,.explainPanel.show{display:block}.helpPanel{background:var(--cyanSoft)}.explainPanel{background:var(--limeSoft)}
-.liveCard h3{font-size:18px;margin:0 0 6px}.liveCard p{font-size:11.5px;color:var(--muted);line-height:1.45}.joined{display:flex;justify-content:space-between;background:var(--soft);border-radius:12px;padding:10px 12px;margin-top:10px}.joined b{font-size:13px}.joined span{font-size:11px;color:var(--muted)}
-.responses{display:grid;gap:9px;margin-top:15px}.resp{display:grid;grid-template-columns:24px 1fr 42px;gap:8px;align-items:center}.respTrack{height:10px;background:#ECEEF4;border-radius:99px;overflow:hidden}.respBar{height:100%;background:var(--grad);width:0;border-radius:99px;transition:.35s}.resp .n{text-align:right;font-size:10.5px;color:var(--muted);font-weight:800}
-.timerBox{margin-top:12px}.timerLine{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);font-weight:800}.timerTrack{height:8px;background:#ECEEF4;border-radius:99px;overflow:hidden;margin-top:5px}.timerBar{height:100%;background:var(--yellow);width:100%;transition:width .2s linear}
-.wheelBox,.winnerBox{display:none;margin-top:12px;padding:15px;border-radius:15px;text-align:center}.wheelBox{background:linear-gradient(135deg,#FFF1C2,#FFE5F1)}.winnerBox{background:var(--limeSoft)}.wheelBox.show,.winnerBox.show{display:block}.wheelName{font-family:'Space Grotesk';font-size:26px;font-weight:700;color:#713F98}.winnerBox .cup{font-size:35px}.winnerBox h3{font-size:23px;margin:4px 0 2px}
-.leader{display:grid;gap:7px;margin-top:10px}.rank{display:grid;grid-template-columns:32px 1fr 75px;gap:7px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:8px 10px}.rank .pos{color:var(--primary);font-weight:800}.rank .pts{text-align:right;font-size:10.5px;font-weight:800}
-.qrWrap{display:flex;align-items:center;gap:15px;flex-wrap:wrap}.qrBox{background:#fff;border:1px solid var(--border);border-radius:16px;padding:12px}.qrBox canvas{display:block}.urlBox{flex:1;min-width:260px}.urlBox code{display:block;background:var(--soft);border-radius:10px;padding:10px;font-size:10px;word-break:break-all;margin:7px 0}
-.specificHero{background:linear-gradient(135deg,#171A2B,#414766);color:white;border-radius:28px;padding:32px;text-align:center}.specificHero h2{font-size:37px;margin:8px 0 10px}.specificHero p{max-width:760px;margin:auto;opacity:.86;line-height:1.6}
-.oePair{display:grid;grid-template-columns:1fr 42px 1fr;gap:9px;align-items:center;margin:10px 0}.oePair>div:not(.arr){padding:13px;border:1px solid var(--border);border-radius:12px;background:#fff;font-size:12.5px;line-height:1.45}.oePair .arr{text-align:center;color:var(--primary);font-size:20px}
-.compare{border:1px solid var(--border);border-radius:15px;overflow:hidden;margin-top:16px}.row{display:grid;grid-template-columns:1fr 1fr}.row>div{padding:12px 14px;border-bottom:1px solid var(--border)}.row>div+div{border-left:1px solid var(--border)}.row.head{background:var(--soft);font-weight:800}.row:last-child>div{border-bottom:0}
-.workshop{display:grid;grid-template-columns:.82fr 1.18fr;gap:14px}.guide{display:grid;gap:10px}.gstep{display:grid;grid-template-columns:32px 1fr;gap:9px}.gstep .n{width:32px;height:32px;border-radius:10px;background:var(--grad);color:white;display:grid;place-items:center;font-weight:800}.gstep .txt{background:#fff;border:1px solid var(--border);border-radius:12px;padding:11px 12px}.gstep .txt b{display:block}.gstep .txt span{font-size:11.5px;color:var(--muted)}.writer{background:#fff;border:1px solid var(--border);border-radius:20px;padding:20px}.field{margin-bottom:11px}.field label{display:block;font-size:10.5px;font-weight:800;color:var(--muted);margin-bottom:5px}.field textarea,.field input{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px}.field textarea{min-height:68px}
-.studentApp{max-width:640px;margin:auto;min-height:100vh;padding-bottom:30px}.studentTop{position:sticky;top:0;z-index:40;background:rgba(247,248,252,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:12px 15px;display:flex;justify-content:space-between}.studentWho{display:flex;align-items:center;gap:9px}.avatar{width:38px;height:38px;border-radius:12px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800}.studentWho b{display:block;font-size:13px}.studentWho span{display:block;font-size:10.5px;color:var(--muted)}.scorePill{background:var(--primarySoft);color:var(--primary);padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}.studentScreen{padding:18px 15px}.joinCard{background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px;box-shadow:var(--shadow)}.joinCard h2{font-size:24px;margin:0 0 6px}.joinCard p{color:var(--muted);font-size:12.5px;line-height:1.5}.input{width:100%;border:1px solid var(--border);border-radius:11px;padding:11px;margin-top:9px}.studentWait,.studentResult{text-align:center;padding:55px 18px}.studentWait .big,.studentResult .icon{font-size:52px}.studentWait h2,.studentResult h2{font-size:25px}.studentWait p,.studentResult p{color:var(--muted);font-size:12.5px;line-height:1.5}.studentQ .qtext{font-size:22px}.studentQ .opt{padding:15px;font-size:13.5px}.studentQ .opt:disabled{opacity:.5}.studentQ .opt.chosen{border-color:var(--primary);background:var(--primarySoft)}.lockMsg{text-align:center;font-size:11px;color:var(--muted);margin:8px 0}
-@media(max-width:920px){.roundCards{grid-template-columns:1fr 1fr}.quizLayout,.workshop,.grid2,.grid3{grid-template-columns:1fr}.hero h2{font-size:35px}.teacherStage{padding:18px 13px 70px}.roleGrid{grid-template-columns:1fr}.progressWrap{max-width:190px}.brand small{display:none}.oePair{grid-template-columns:1fr}.oePair .arr{transform:rotate(90deg)}}
+body{font-family:system-ui,-apple-system,sans-serif;background:#F7F8FC;color:#171A2B;display:grid;place-items:center;min-height:100vh;margin:0}
+#status{padding:24px;text-align:center}
 </style>
 </head>
-<body><div id="root"></div>
+<body>
+<div id="status">Cargando actividad…</div>
 <script>
-const root=document.getElementById('root');
-const STORE='ee2_objetivos_final_session_v1';
-const QTIME=25;
-const ROUNDS=[
-{id:'r1',title:'Ronda 1 · Reconocer',desc:'4 preguntas · funciona o necesita reformulación.',questions:[
-{type:'Funciona / reformular',ctx:'Tema: juego libre durante la primera infancia.',q:'“Investigar el juego libre en niños y niñas.”',opts:['Funciona como objetivo general','Necesita ser reformulado'],correct:1,hint:'¿Se entiende exactamente qué quieren hacer con el tema?',explain:'Necesita reformulación. “Investigar” y “juego libre” todavía son muy amplios. Falta decir con mayor precisión qué aspecto quieren comprender.'},
-{type:'Funciona / reformular',ctx:'Tema: participación familiar en la adaptación.',q:'“Describir las formas de participación de las familias durante el proceso de adaptación al jardín infantil.”',opts:['Funciona como objetivo general','Necesita ser reformulado'],correct:0,hint:'¿Se entiende qué harán y en qué contexto?',explain:'Funciona. La acción es clara, el foco está definido y sabemos en qué contexto se desarrollará.'},
-{type:'Funciona / reformular',ctx:'Tema: lectura compartida.',q:'“Conocer más sobre la lectura compartida en niños y niñas.”',opts:['Funciona como objetivo general','Necesita ser reformulado'],correct:1,hint:'¿“Conocer más” explica realmente qué hará la investigación?',explain:'Necesita reformulación. “Conocer más” es demasiado general; conviene usar una acción más clara.'},
-{type:'Funciona / reformular',ctx:'Tema: juego simbólico y lenguaje.',q:'“Analizar la relación entre el juego simbólico y el desarrollo del lenguaje en niños y niñas de 3 a 5 años.”',opts:['Funciona como objetivo general','Necesita ser reformulado'],correct:0,hint:'Busca acción, foco y delimitación.',explain:'Funciona. Se entiende qué harán, qué relación estudiarán y en qué población.'}
-]},
-{id:'r2',title:'Ronda 2 · Elegir el mejor',desc:'4 preguntas · tres objetivos plausibles.',questions:[
-{type:'Elige el mejor objetivo',ctx:'Problema: comprender cómo se relaciona el juego simbólico con el desarrollo del lenguaje.',q:'¿Cuál comunica mejor esa investigación?',opts:['Conocer la importancia del juego simbólico en niños y niñas.','Analizar la relación entre el juego simbólico y el desarrollo del lenguaje en niños y niñas de 3 a 5 años.','Investigar el juego simbólico y el lenguaje en niños.'],correct:1,hint:'Busca la opción que mantenga la relación entre ambos fenómenos y diga en quiénes.',explain:'B comunica mejor el problema: incluye acción, relación y población.'},
-{type:'Elige el mejor objetivo',ctx:'Problema: estudiar la participación familiar durante la adaptación al jardín infantil.',q:'¿Cuál representa mejor ese problema?',opts:['Describir la participación de las familias en el proceso de adaptación al jardín infantil.','Investigar la importancia de las familias en la educación.','Analizar cómo participan las familias y cómo esa participación se relaciona con la adaptación de niños y niñas al jardín infantil.'],correct:2,hint:'¿Cuál mantiene participación familiar + adaptación?',explain:'C representa mejor el problema porque conserva las dos partes que queremos comprender.'},
-{type:'Elige el mejor objetivo',ctx:'Problema: comprender el uso de pantallas y las conductas de niños y niñas.',q:'¿Cuál está mejor construido?',opts:['Analizar la relación entre el uso de pantallas y determinadas conductas de niños y niñas durante la primera infancia.','Saber qué pasa con las pantallas y los niños.','Estudiar las pantallas en la infancia.'],correct:0,hint:'Busca la opción más precisa, no la más corta.',explain:'A es la más precisa: expresa una acción, relaciona dos aspectos y delimita la etapa.'},
-{type:'Elige el mejor objetivo',ctx:'Problema: conocer las formas de juego al aire libre en niños y niñas de 3 a 5 años.',q:'¿Cuál objetivo se ajusta mejor?',opts:['Describir las principales formas de juego al aire libre en niños y niñas de 3 a 5 años.','Analizar la importancia del juego en la infancia.','Conocer los juegos que hacen los niños afuera.'],correct:0,hint:'El problema pide conocer formas de juego, no la importancia del juego en general.',explain:'A mantiene exactamente el foco del problema y lo expresa con mayor precisión.'}
-]},
-{id:'r3',title:'Ronda 3 · Diagnosticar',desc:'3 preguntas · reconocer qué necesita mejorar.',questions:[
-{type:'¿Qué corregirías primero?',ctx:'Objetivo: “Conocer más sobre la lectura compartida en niños y niñas de 4 a 5 años.”',q:'¿Qué aspecto necesita mejorar primero?',opts:['El verbo “conocer más”','La edad de los niños y niñas','La expresión “lectura compartida”'],correct:0,hint:'¿Qué parte no dice con precisión qué hará la investigación?',explain:'El primer problema está en “conocer más”. Es demasiado general.'},
-{type:'¿Qué corregirías primero?',ctx:'Objetivo: “Analizar, describir, comparar, identificar y proponer estrategias sobre participación familiar.”',q:'¿Cuál es el principal problema?',opts:['Tiene demasiadas acciones principales','No menciona a las familias','El verbo analizar no sirve'],correct:0,hint:'Un objetivo general necesita una dirección principal.',explain:'Promete demasiadas acciones distintas. Conviene elegir una acción central.'},
-{type:'¿Qué corregirías primero?',ctx:'Objetivo: “Promover hábitos de lectura en las familias de niños y niñas de Educación Parvularia.”',q:'¿Qué problema tiene para nuestra investigación?',opts:['Busca realizar una acción con las familias, no comprender un problema','Le falta un verbo','Es demasiado largo'],correct:0,hint:'¿Qué tendría que hacer realmente el grupo para cumplir ese objetivo?',explain:'El objetivo propone intervenir. Nuestra investigación busca comprender un problema.'}
-]},
-{id:'r4',title:'Ronda 4 · Objetivos específicos',desc:'4 preguntas · coherencia entre general y específicos.',questions:[
-{type:'Elige el conjunto coherente',ctx:'OG: Analizar la relación entre juego al aire libre y desarrollo motor en niños y niñas de 3 a 5 años.',q:'¿Qué conjunto ayuda mejor a alcanzar el objetivo general?',opts:['Buscar artículos; leer investigaciones; hacer una síntesis.','Caracterizar las experiencias de juego al aire libre; describir dimensiones del desarrollo motor; analizar las relaciones reportadas entre ambas.','Promover el juego al aire libre; capacitar a las familias; diseñar actividades.'],correct:1,hint:'Los específicos no son tareas ni campañas.',explain:'B desglosa el objetivo general en partes necesarias: comprender el juego, comprender el desarrollo motor y analizar su relación.'},
-{type:'¿Qué falta?',ctx:'OG: Analizar la relación entre lectura compartida y desarrollo del lenguaje oral. Ya tenemos: 1) Caracterizar estrategias de lectura compartida. 2) Describir dimensiones del lenguaje oral.',q:'¿Qué objetivo específico falta?',opts:['Analizar las relaciones reportadas entre ambas dimensiones.','Buscar más artículos sobre lectura.','Valorar la importancia de leer cuentos.'],correct:0,hint:'Si el OG quiere analizar una relación, ¿qué debe ocurrir al final?',explain:'Falta volver a unir ambas partes. Sin analizar la relación, no alcanzamos el objetivo general.'},
-{type:'¿Cuál sobra?',ctx:'OG: Analizar la relación entre participación familiar y adaptación al jardín infantil.',q:'¿Cuál de estos específicos no ayuda directamente al objetivo general?',opts:['Describir formas de participación familiar durante la adaptación.','Identificar características del proceso de adaptación de niños y niñas.','Describir la historia de los jardines infantiles en Chile.'],correct:2,hint:'¿Cuál podría ser interesante, pero no es necesario para este problema?',explain:'La historia de los jardines puede ser interesante, pero no ayuda directamente al objetivo general.'},
-{type:'¿Es objetivo o tarea?',ctx:'Un grupo está redactando sus objetivos específicos.',q:'¿Cuál opción sí es un objetivo específico y no una tarea del proceso?',opts:['Buscar cinco artículos en Google Académico.','Identificar las principales formas de participación familiar descritas en los estudios revisados.','Hacer un resumen de cada artículo.'],correct:1,hint:'Una tarea dice qué harás para trabajar; un objetivo dice qué necesitas comprender.',explain:'B expresa algo que la investigación necesita comprender.'}
-]}];
-const TIES=[
-{type:'Desempate',ctx:'Problema: comprender las formas de participación infantil durante actividades grupales.',q:'¿Cuál objetivo es más claro?',opts:['Describir las formas de participación de niños y niñas durante actividades grupales en Educación Parvularia.','Conocer la participación infantil.','Investigar cómo participan los niños.'],correct:0,hint:'Busca precisión en acción, foco y contexto.',explain:'A comunica con mayor claridad qué se estudiará y en qué contexto.'},
-{type:'Desempate',ctx:'OG: Describir las formas de juego simbólico en niños y niñas de 3 a 5 años.',q:'¿Cuál específico ayuda mejor?',opts:['Identificar las principales características del juego simbólico descritas en la literatura.','Analizar la historia del juguete.','Crear actividades de juego para una sala.'],correct:0,hint:'Debe ayudar a describir el juego simbólico.',explain:'A aporta directamente al propósito del objetivo general.'},
-{type:'Desempate final',ctx:'Objetivo: “Saber más sobre la participación familiar.”',q:'¿Cuál reformulación es más clara?',opts:['Describir las formas de participación familiar durante el proceso de adaptación al jardín infantil.','Investigar a las familias.','Conocer cómo participan los apoderados.'],correct:0,hint:'Busca una acción concreta y un contexto claro.',explain:'A es la formulación más precisa y completa.'}
-];
+(async()=>{
+  // Versión original fijada: evita recursión después de reemplazar main/index.html.
+  const ORIGINAL='https://raw.githubusercontent.com/fabianpulgaru-dev/tallerobjetivosinvestigacion/613a4ad85108aa58bb7be7041d5f5703c695a29a/index.html';
+  try{
+    let src=await (await fetch(ORIGINAL,{cache:'no-store'})).text();
 
-let role=null,peer=null,room='',connections=new Map(),students=new Map(),roundIndex=0,qIndex=0,currentQ=null,currentAnswers=new Map(),phase='idle',qStarted=0,timerInt=null,tieIndex=0,teacherPage=0;
-const pages=['intro','bridge','model','rounds','quiz','specificIntro','specificModel','specificQuiz','workshop','close'];
-
-const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-const initials=s=>(s||'?').trim().charAt(0).toUpperCase();
-const code=()=> 'OBJ-'+Math.floor(100+Math.random()*900);
-const icons=()=>window.lucide&&lucide.createIcons();
-
-function saveTeacher(){
- const data={room,students:[...students.values()].map(s=>({name:s.name,score:s.score,answered:s.answered})),roundIndex,qIndex,tieIndex};
- try{localStorage.setItem(STORE,JSON.stringify(data))}catch(e){}
-}
-function downloadCSV(){
- const rows=[['Nombre','Puntaje','Respuestas enviadas'],...[...students.values()].sort((a,b)=>b.score-a.score).map(s=>[s.name,s.score,s.answered])];
- const csv=rows.map(r=>r.map(x=>'"'+String(x).replaceAll('"','""')+'"').join(',')).join('\n');
- const blob=new Blob(["\ufeff"+csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='resultados_objetivos.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)
-}
-
-function roleStart(){
- root.innerHTML=`<div class="roleStart"><div class="brandStart"><div class="brandIcon"><i data-lucide="target"></i></div><div><h1>Expresión Escrita II</h1><p>Objetivos de investigación · clase interactiva</p></div></div>
- <div class="welcome"><h2>Presentación + concurso en vivo</h2><p>Una sola herramienta para conducir la clase, proyectar las explicaciones y recibir respuestas desde celulares o computadores.</p></div>
- <div class="roleGrid"><button class="roleCard" onclick="teacherStart()"><div class="ico"><i data-lucide="presentation"></i></div><h3>Docente</h3><p>Crea una sala, controla la clase, revela respuestas, usa ruleta, ranking y desempates.</p></button>
- <button class="roleCard" onclick="studentJoinScreen()"><div class="ico"><i data-lucide="smartphone"></i></div><h3>Estudiante</h3><p>Entra solo con código de sala y nombre o apodo.</p></button></div>
- <div class="card" style="margin-top:15px"><b>Importante para la prueba:</b><p class="note">La conexión en vivo usa PeerJS, por lo que ambos dispositivos necesitan internet. Para una clase real conviene abrir este HTML desde una dirección web (Drive/SharePoint público, GitHub Pages, Netlify u otro hosting), no desde una ruta local.</p></div></div>`;icons()
-}
-
-function teacherStart(){
- role='teacher';room=code();
- root.innerHTML=`<header class="topbar"><div class="brand"><div class="ico"><i data-lucide="target"></i></div><div><h1>Objetivos de investigación</h1><small>Expresión Escrita II</small></div></div><div class="progressWrap"><div class="track"><i id="prog"></i></div><span class="ptxt" id="ptxt"></span></div><div class="roomPill"><span id="odot" class="onlineDot"></span>Sala <strong>${room}</strong> · <span id="scount">0</span></div></header><main class="teacherStage" id="stage"></main>`;
- setupTeacherPeer();renderTeacherPage();icons()
-}
-function setupTeacherPeer(){
+    const oldTeacher=`function setupTeacherPeer(){
  peer=new Peer('ee2-'+room.toLowerCase());
  peer.on('open',()=>document.getElementById('odot')?.classList.add('on'));
  peer.on('connection',conn=>{connections.set(conn.peer,conn);conn.on('data',d=>teacherData(conn,d));conn.on('close',()=>{connections.delete(conn.peer);const hit=[...students.entries()].find(([k,s])=>s.peer===conn.peer);if(hit)students.delete(hit[0]);updateLive()})});
- peer.on('error',e=>{const st=document.getElementById('stage');if(st)st.insertAdjacentHTML('afterbegin',`<div class="errorMsg">Problema de conexión: ${esc(e.type)}. Prueba recargando o usando otra red.</div>`)})
-}
-function teacherData(conn,d){
- if(!d||!d.type)return;
- if(d.type==='join'){
-   let name=(d.name||'Estudiante').trim(),base=name,n=2;while(students.has(name))name=base+' '+n++;
-   students.set(name,{name,peer:conn.peer,score:0,answered:0});conn.send({type:'joined',name,room});
-   if(currentQ&&phase!=='idle') conn.send({type:'question',q:studentQ(currentQ),phase,start:qStarted,time:QTIME,round:roundIndex+1,index:qIndex+1,total:ROUNDS[roundIndex]?.questions.length||0});
-   saveTeacher();updateLive()
- }
- if(d.type==='answer'&&phase==='open'){
-   const s=[...students.values()].find(x=>x.peer===conn.peer);if(!s||currentAnswers.has(s.name))return;
-   const ms=Date.now()-qStarted,ok=d.choice===currentQ.correct,bonus=ok?Math.max(0,Math.round(300*(1-Math.min(ms,QTIME*1000)/(QTIME*1000)))):0,pts=ok?1000+bonus:0;
-   currentAnswers.set(s.name,{choice:d.choice,ms,ok,pts});s.score+=pts;s.answered++;saveTeacher();updateLive()
- }
-}
-const broadcast=o=>connections.forEach(c=>{try{c.open&&c.send(o)}catch(e){}});
-const studentQ=q=>({type:q.type,ctx:q.ctx,q:q.q,opts:q.opts});
+ peer.on('error',e=>{const st=document.getElementById('stage');if(st)st.insertAdjacentHTML('afterbegin',\`<div class="errorMsg">Problema de conexión: \${esc(e.type)}. Prueba recargando o usando otra red.</div>\`)})
+}`;
 
-function renderTeacherPage(){
- const st=document.getElementById('stage');if(!st)return;document.getElementById('prog').style.width=((teacherPage+1)/pages.length*100)+'%';document.getElementById('ptxt').textContent=(teacherPage+1)+' / '+pages.length;
- const p=pages[teacherPage];
- if(p==='intro')st.innerHTML=intro();
- if(p==='bridge')st.innerHTML=bridge();
- if(p==='model')st.innerHTML=model();
- if(p==='rounds')st.innerHTML=rounds();
- if(p==='quiz'){roundIndex=Math.min(roundIndex,2);qIndex=0;renderQuiz();return}
- if(p==='specificIntro')st.innerHTML=specificIntro();
- if(p==='specificModel')st.innerHTML=specificModel();
- if(p==='specificQuiz'){roundIndex=3;qIndex=0;renderQuiz();return}
- if(p==='workshop')st.innerHTML=workshop();
- if(p==='close')st.innerHTML=closePage();
- icons()
-}
-const nav=()=>`<div class="footerNav"><button class="btn ghost" onclick="prevPage()">← Volver</button><button class="btn primary" onclick="nextPage()">Continuar →</button></div>`;
-function nextPage(){teacherPage=Math.min(pages.length-1,teacherPage+1);renderTeacherPage()}function prevPage(){teacherPage=Math.max(0,teacherPage-1);renderTeacherPage()}
+    const newTeacher=`function setupTeacherPeer(){
+ const peerId='ee2-'+room.toLowerCase();
+ const cfg={debug:1,config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}};
+ peer=new Peer(peerId,cfg);
+ peer.on('open',()=>document.getElementById('odot')?.classList.add('on'));
+ peer.on('disconnected',()=>{document.getElementById('odot')?.classList.remove('on');try{peer.reconnect()}catch(e){}});
+ peer.on('connection',conn=>{
+   connections.set(conn.peer,conn);
+   conn.on('data',d=>teacherData(conn,d));
+   conn.on('close',()=>{connections.delete(conn.peer);updateLive()});
+   conn.on('error',()=>{connections.delete(conn.peer);updateLive()})
+ });
+ peer.on('error',e=>{
+   const st=document.getElementById('stage');
+   if(st&&!document.getElementById('peerErr'))st.insertAdjacentHTML('afterbegin',\`<div class="errorMsg" id="peerErr">Problema de conexión (\${esc(e.type)}). Mantén esta pestaña abierta y verifica Internet.</div>\`)
+ })
+}`;
 
-function intro(){return `<div class="hero"><div class="ey">Clase 4 · Objetivos de investigación</div><h2>De una buena justificación a un objetivo claro</h2><p>Ya explicaron por qué su problema merece ser investigado. Ahora aprenderemos a decir con precisión <b>qué queremos lograr con esa investigación</b>.</p><div class="actions"><button class="btn white" onclick="nextPage()">Comenzar →</button></div></div>
-<div class="card" style="margin-top:14px"><div class="grid3"><div class="call purple"><b>Sala</b><span>Código: <b style="color:var(--primary)">${room}</b></span></div><div class="call cyan"><b>Participantes</b><span><b id="introCount">${students.size}</b> conectadas/os.</span></div><div class="call lime"><b>Acceso</b><span>Sin correo. Solo código + nombre.</span></div></div></div>
-<div class="card" style="margin-top:14px"><h3>Acceso desde celulares</h3><div class="qrWrap"><div class="qrBox"><canvas id="qr"></canvas></div><div class="urlBox"><p class="note">Si esta presentación está alojada en una URL pública, el QR abre directamente el modo estudiante con el código listo.</p><code id="shareUrl"></code><button class="btn secondary" onclick="copyShare()">Copiar enlace</button></div></div></div>`}
-function bridge(){return `<div class="head"><span class="kicker">Volvamos a lo que ya hicieron</span><h2>La justificación ya respondió una pregunta importante</h2><p>Antes de escribir objetivos, recuperamos el problema, el foco y el aporte que ya construyeron.</p></div><div class="grid3"><div class="call yellow"><b>Problema</b><span>¿Qué situación queremos comprender?</span></div><div class="call cyan"><b>Foco</b><span>¿Qué aspecto nos interesa especialmente?</span></div><div class="call lime"><b>Aporte</b><span>¿Qué dijimos que podría aportar investigar esto?</span></div></div><div class="card" style="margin-top:14px"><div class="goal">Si ya explicamos <b>por qué</b> importa… ahora debemos decir <b>qué vamos a hacer para comprenderlo</b>.</div></div>${nav()}`}
-function model(){return `<div class="head"><span class="kicker">Mostrar → desarmar → construir</span><h2>Primero vemos un objetivo que sí se entiende</h2></div><div class="card"><div class="goal"><mark class="v">Analizar</mark> la relación entre <mark class="q">las estrategias de lectura compartida y el desarrollo del lenguaje oral</mark> en <mark class="c">niños y niñas de 4 a 5 años</mark>.</div></div><div class="modelSteps" style="margin-top:14px"><div class="mstep"><div class="n">1</div><div class="body"><b>Partimos del problema</b><span>Qué queremos comprender.</span></div></div><div class="mstep"><div class="n">2</div><div class="body"><b>Elegimos la acción</b><span>Describir, comparar, analizar, identificar…</span></div></div><div class="mstep"><div class="n">3</div><div class="body"><b>Precisamos qué</b><span>Qué fenómeno o relación estudiaremos.</span></div></div><div class="mstep"><div class="n">4</div><div class="body"><b>Delimitamos</b><span>En quiénes o en qué contexto.</span></div></div></div>${nav()}`}
-function rounds(){return `<div class="head"><span class="kicker">Modalidad concurso</span><h2>Cuatro rondas + banco de desempate</h2><p>La dificultad aumenta gradualmente y podemos extender el juego si la clase lo necesita.</p></div><div class="roundCards"><div class="roundCard"><div class="rn">4</div><h4>Reconocer</h4><p>Funciona / reformular.</p></div><div class="roundCard"><div class="rn">4</div><h4>Elegir</h4><p>Tres opciones plausibles.</p></div><div class="roundCard"><div class="rn">3</div><h4>Diagnosticar</h4><p>Qué parte hay que mejorar.</p></div><div class="roundCard"><div class="rn">4</div><h4>Específicos</h4><p>Coherencia OG/OE.</p></div></div><div class="roundCards" style="grid-template-columns:1fr"><div class="roundCard tie"><div class="rn">+3</div><h4>Desempate</h4><p>Preguntas extra disponibles cuando las necesites.</p></div></div><div class="card" style="margin-top:14px"><b>Regla del puntaje</b><p class="note">1.000 puntos por respuesta correcta + hasta 300 por rapidez. Cada pregunta deja 3,5 segundos de lectura antes de habilitar respuesta y puede cerrarse manualmente o al cumplir ${QTIME} segundos.</p></div><div class="footerNav"><button class="btn ghost" onclick="prevPage()">← Volver</button><button class="btn primary" onclick="teacherPage=4;roundIndex=0;qIndex=0;renderQuiz()">Comenzar concurso →</button></div>`}
+    if(!src.includes(oldTeacher)) throw new Error('No se encontró el bloque docente esperado.');
+    src=src.replace(oldTeacher,newTeacher);
 
-function renderQuiz(tie=false){
- clearInterval(timerInt);currentQ=tie?TIES[tieIndex]:ROUNDS[roundIndex].questions[qIndex];phase='idle';currentAnswers.clear();
- document.getElementById('stage').innerHTML=`<div class="head"><span class="kicker">${tie?'Desempate':ROUNDS[roundIndex].title}</span><h2>${currentQ.type}</h2><p>${tie?'Pregunta adicional':ROUNDS[roundIndex].desc}</p></div><div class="quizLayout"><div class="qcard"><div class="qtop"><span class="qbadge">${currentQ.type}</span><span class="qcount">${tie?'Extra '+(tieIndex+1):'Pregunta '+(qIndex+1)+' / '+ROUNDS[roundIndex].questions.length}</span></div><div class="context">${currentQ.ctx}</div><p class="qtext">${currentQ.q}</p><div class="options">${currentQ.opts.map((o,i)=>`<div class="opt" id="o${i}"><span class="letter">${String.fromCharCode(65+i)}</span><span>${o}</span></div>`).join('')}</div><div class="actions"><button class="btn primary" onclick="openVote(${tie})">▶ Abrir</button><button class="btn secondary" onclick="document.getElementById('hint').classList.toggle('show')">💡 Pista</button><button class="btn secondary" onclick="spin()">🎡 Argumenta</button><button class="btn secondary" onclick="closeVote()">⏸ Cerrar</button><button class="btn primary" onclick="reveal()">👁 Revelar</button><button class="btn secondary" onclick="winner()">🏆 Ganadora</button></div><div class="helpPanel" id="hint">${currentQ.hint}</div><div class="explainPanel" id="exp"><b>Respuesta: ${String.fromCharCode(65+currentQ.correct)}</b><br>${currentQ.explain}</div></div>
-<div class="liveCard"><h3>Respuestas del curso</h3><p>La distribución aparece sin marcar cuál es correcta.</p><div class="joined"><b><span id="rc">0</span> / ${students.size} respuestas</b><span>${students.size} conectadas/os</span></div><div class="responses" id="bars">${barHTML()}</div><div class="timerBox"><div class="timerLine"><span>Tiempo</span><span id="tsec">—</span></div><div class="timerTrack"><div class="timerBar" id="tbar"></div></div></div><div class="phase" id="pbox">Esperando que abras la votación.</div><div class="wheelBox" id="wheel"><div>🎡 Le toca argumentar a…</div><div class="wheelName" id="wname"></div></div><div class="winnerBox" id="win"></div></div></div>
-<div class="footerNav">${tie?`<button class="btn ghost" onclick="prevTie()">← Desempate anterior</button><button class="btn primary" onclick="nextTie()">Siguiente desempate →</button>`:`<button class="btn ghost" onclick="prevQ()">← Pregunta anterior</button><button class="btn primary" onclick="nextQ()">Siguiente pregunta →</button>`}</div>`;icons();updateLive()
-}
-function barHTML(){return currentQ.opts.map((_,i)=>`<div class="resp"><b>${String.fromCharCode(65+i)}</b><div class="respTrack"><div class="respBar" id="rb${i}"></div></div><div class="n" id="rn${i}">0%</div></div>`).join('')}
-function openVote(tie=false){
- phase='open';currentAnswers.clear();qStarted=Date.now();broadcast({type:'question',q:studentQ(currentQ),phase:'open',start:qStarted,time:QTIME,round:tie?'D':roundIndex+1,index:tie?tieIndex+1:qIndex+1,total:tie?TIES.length:ROUNDS[roundIndex].questions.length,minRead:3500});document.getElementById('pbox').textContent='Votación abierta';startTimer()
-}
-function startTimer(){
- clearInterval(timerInt);timerInt=setInterval(()=>{const e=(Date.now()-qStarted)/1000,remain=Math.max(0,QTIME-e),sec=document.getElementById('tsec'),bar=document.getElementById('tbar');if(sec)sec.textContent=Math.ceil(remain)+' s';if(bar)bar.style.width=(remain/QTIME*100)+'%';if(remain<=0){clearInterval(timerInt);if(phase==='open')closeVote()}},200)
-}
-function closeVote(){if(!currentQ)return;phase='closed';clearInterval(timerInt);broadcast({type:'phase',phase:'closed'});const p=document.getElementById('pbox');if(p)p.textContent='Votación cerrada · discutimos antes de revelar.'}
-function reveal(){phase='reveal';document.querySelectorAll('[id^="o"]').forEach((e,i)=>e.classList.toggle('correct',i===currentQ.correct));document.getElementById('exp').classList.add('show');document.getElementById('pbox').textContent='Respuesta revelada · analizamos el razonamiento.';broadcast({type:'reveal',correct:currentQ.correct,explain:currentQ.explain})}
-function spin(){const names=[...students.keys()],box=document.getElementById('wheel');box.classList.add('show');if(!names.length){document.getElementById('wname').textContent='Aún nadie';return}let n=0;const i=setInterval(()=>{document.getElementById('wname').textContent=names[Math.floor(Math.random()*names.length)];if(++n>18)clearInterval(i)},75)}
-function winner(){
- const ok=[...currentAnswers.entries()].filter(([_,a])=>a.ok).sort((a,b)=>a[1].ms-b[1].ms),box=document.getElementById('win');box.classList.add('show');
- if(!ok.length){box.innerHTML='<div class="cup">🤔</div><h3>Sin ganadora</h3><p>Nadie respondió correctamente.</p>';broadcast({type:'winner',name:null});return}
- const [name,a]=ok[0],top=[...students.values()].sort((a,b)=>b.score-a.score).slice(0,5);box.innerHTML=`<div class="cup">🏆</div><h3>${esc(name)}</h3><p>Correcta más rápida · ${(a.ms/1000).toFixed(1)} s</p><div class="leader">${top.map((s,i)=>`<div class="rank"><div class="pos">${i+1}</div><div>${esc(s.name)}</div><div class="pts">${s.score}</div></div>`).join('')}</div>`;broadcast({type:'winner',name,score:a.pts,leader:top.map(s=>({name:s.name,score:s.score}))})
-}
-function updateLive(){if(!currentQ)return;const counts=Array(currentQ.opts.length).fill(0);currentAnswers.forEach(a=>counts[a.choice]++);const tot=currentAnswers.size;document.getElementById('rc')&&(document.getElementById('rc').textContent=tot);counts.forEach((c,i)=>{const p=tot?Math.round(c/tot*100):0;document.getElementById('rb'+i)&&(document.getElementById('rb'+i).style.width=p+'%');document.getElementById('rn'+i)&&(document.getElementById('rn'+i).textContent=p+'%')});document.getElementById('scount')&&(document.getElementById('scount').textContent=students.size);document.getElementById('introCount')&&(document.getElementById('introCount').textContent=students.size)}
-function nextQ(){if(qIndex<ROUNDS[roundIndex].questions.length-1){qIndex++;renderQuiz();return}if(roundIndex<2){roundIndex++;qIndex=0;renderQuiz();return}teacherPage=5;renderTeacherPage()}
-function prevQ(){if(qIndex>0){qIndex--;renderQuiz()}else if(roundIndex>0){roundIndex--;qIndex=ROUNDS[roundIndex].questions.length-1;renderQuiz()}}
-function specificIntro(){return `<div class="specificHero"><div style="font-size:11px;opacity:.7;text-transform:uppercase;font-weight:800">Segunda parte</div><h2>Tenemos el destino. Ahora construimos el camino.</h2><p>El objetivo general expresa qué busca lograr toda la investigación. Los específicos desglosan ese propósito en partes que necesitamos comprender.</p></div>${nav()}`}
-function specificModel(){return `<div class="head"><span class="kicker">Modelado</span><h2>No empezamos escribiendo tres objetivos</h2><p>Primero preguntamos qué necesitamos comprender para alcanzar el objetivo general.</p></div><div class="card"><b>OG:</b><p>Analizar la relación entre el uso de pantallas y las conductas de niños y niñas durante la primera infancia.</p></div><div class="oePair"><div><b>Necesitamos comprender…</b><br>qué formas de uso aparecen.</div><div class="arr">→</div><div><b>OE1</b><br>Describir las principales formas de uso de pantallas mencionadas en la literatura.</div></div><div class="oePair"><div><b>Necesitamos comprender…</b><br>qué conductas infantiles aparecen relacionadas.</div><div class="arr">→</div><div><b>OE2</b><br>Identificar las principales conductas infantiles asociadas en los estudios revisados.</div></div><div class="oePair"><div><b>Necesitamos comprender…</b><br>qué relación aparece entre ambas.</div><div class="arr">→</div><div><b>OE3</b><br>Analizar las relaciones descritas entre uso de pantallas y conductas infantiles.</div></div><div class="footerNav"><button class="btn ghost" onclick="prevPage()">← Volver</button><button class="btn primary" onclick="teacherPage=7;roundIndex=3;qIndex=0;renderQuiz()">Concurso de específicos →</button></div>`}
-function workshop(){return `<div class="head"><span class="kicker">Taller</span><h2>Ahora construyan sus propios objetivos</h2><p>Se acaba la competencia y volvemos a la investigación real de cada grupo.</p></div><div class="workshop"><div class="guide">${['Problema · ¿qué situación justificamos?','Foco · ¿qué queremos comprender?','Objetivo general · acción + qué + delimitación','Necesidades · ¿qué debemos comprender primero?','Objetivos específicos · transformamos esas necesidades'].map((x,i)=>`<div class="gstep"><div class="n">${i+1}</div><div class="txt"><b>${x.split(' · ')[0]}</b><span>${x.split(' · ')[1]}</span></div></div>`).join('')}</div><div class="writer"><div class="field"><label>Problema</label><textarea></textarea></div><div class="field"><label>Foco</label><textarea></textarea></div><div class="field"><label>Objetivo general</label><textarea></textarea></div><div class="field"><label>OE1</label><input></div><div class="field"><label>OE2</label><input></div><div class="field"><label>OE3 (si lo necesitan)</label><input></div></div></div>${nav()}`}
-function closePage(){const top=[...students.values()].sort((a,b)=>b.score-a.score).slice(0,5);return `<div class="hero" style="background:linear-gradient(135deg,#171A2B,#424867)"><div class="ey">Cierre</div><h2>¿Podemos entender qué quiere investigar su grupo?</h2><p>Producto de la sesión: <b>1 objetivo general + al menos 2 objetivos específicos</b>.</p></div><div class="grid2" style="margin-top:14px"><div class="call lime"><b>¿Se entiende qué investigarán?</b><span>Sí / todavía no.</span></div><div class="call cyan"><b>¿Se relaciona con la justificación?</b><span>Sí / todavía no.</span></div><div class="call yellow"><b>¿Los específicos ayudan al general?</b><span>Sí / todavía no.</span></div><div class="call pink"><b>¿Promete demasiado?</b><span>Si es así, ajustamos.</span></div></div><div class="card" style="margin-top:14px"><h3>Ranking final</h3><div class="leader">${top.length?top.map((s,i)=>`<div class="rank"><div class="pos">${i+1}</div><div>${esc(s.name)}</div><div class="pts">${s.score}</div></div>`).join(''):'<p class="note">Aún no hay puntajes.</p>'}</div><div class="actions"><button class="btn warn" onclick="tieIndex=0;renderQuiz(true)">⚡ Desempate</button><button class="btn secondary" onclick="downloadCSV()">↓ Exportar resultados CSV</button></div></div>${nav()}`}
-function nextTie(){if(tieIndex<TIES.length-1){tieIndex++;renderQuiz(true)}else{teacherPage=9;renderTeacherPage()}}function prevTie(){if(tieIndex>0){tieIndex--;renderQuiz(true)}}
+    const start=src.indexOf("let sName='',sScore=0,sConn=null,readInt=null;");
+    const end=src.indexOf("\\nfunction studentData(d){",start);
+    if(start<0||end<0) throw new Error('No se encontró el bloque estudiante esperado.');
 
-function makeShareURL(){
- const u=new URL(location.href);u.search='';u.hash='';u.searchParams.set('mode','student');u.searchParams.set('room',room);return u.toString()
-}
-function renderQR(){
- const c=document.getElementById('qr'),u=makeShareURL();document.getElementById('shareUrl').textContent=u;
- if(window.QRCode&&c)QRCode.toCanvas(c,u,{width:150,margin:1},()=>{})
-}
-function copyShare(){navigator.clipboard.writeText(makeShareURL()).then(()=>alert('Enlace copiado.'))}
-
-function studentJoinScreen(prefill=''){
- root.innerHTML=`<div class="studentApp"><div class="studentScreen"><div class="joinCard"><div class="brandStart" style="margin-bottom:14px"><div class="brandIcon"><i data-lucide="smartphone"></i></div><div><h1 style="font-size:20px">Entrar al concurso</h1><p>Sin correo ni contraseña</p></div></div><h2>Código de sala</h2><input class="input" id="jroom" value="${esc(prefill)}" placeholder="OBJ-427" autocapitalize="characters"><input class="input" id="jname" placeholder="Tu nombre o apodo"><button class="btn primary" style="width:100%;justify-content:center;margin-top:12px" onclick="joinRoom()">Entrar</button><div id="jerr"></div></div></div></div>`;icons()
-}
-let sName='',sScore=0,sConn=null,readInt=null;
+    const newStudent=`let sName='',sScore=0,sConn=null,readInt=null,joinAttempts=0,joinTimer=null,joinedOk=false;
 function joinRoom(){
- const r=document.getElementById('jroom').value.trim().toUpperCase(),name=document.getElementById('jname').value.trim();if(!r||!name){document.getElementById('jerr').innerHTML='<div class="errorMsg">Escribe código y nombre.</div>';return}
- room=r;sName=name;document.getElementById('jerr').innerHTML='<div class="phase">Conectando…</div>';peer=new Peer();
- peer.on('open',()=>{sConn=peer.connect('ee2-'+r.toLowerCase(),{reliable:true});sConn.on('open',()=>sConn.send({type:'join',name}));sConn.on('data',studentData)});
- peer.on('error',()=>document.getElementById('jerr')&&(document.getElementById('jerr').innerHTML='<div class="errorMsg">No pudimos encontrar la sala. Revisa el código y la conexión.</div>'))
+ const r=document.getElementById('jroom').value.trim().toUpperCase(),name=document.getElementById('jname').value.trim();
+ if(!r||!name){document.getElementById('jerr').innerHTML='<div class="errorMsg">Escribe código y nombre.</div>';return}
+ room=r;sName=name;joinAttempts=0;joinedOk=false;clearTimeout(joinTimer);
+ document.getElementById('jerr').innerHTML='<div class="phase">Buscando la sala…</div>';
+ if(peer){try{peer.destroy()}catch(e){}}
+ const cfg={debug:1,config:{iceServers:[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'}]}};
+ peer=new Peer(undefined,cfg);
+ peer.on('open',()=>connectToTeacher(r,name));
+ peer.on('disconnected',()=>{try{peer.reconnect()}catch(e){}});
+ peer.on('error',e=>{
+   if(joinedOk)return;
+   if(['peer-unavailable','network','server-error','socket-error','socket-closed','disconnected'].includes(e.type)){scheduleJoinRetry(r,name);return}
+   showJoinError('No pudimos conectar con la sala. Revisa el código y tu conexión.')
+ })
 }
-function studentData(d){
- if(d.type==='joined'){sName=d.name;studentWait()}
- if(d.type==='question')studentQuestion(d)
- if(d.type==='phase'&&d.phase==='closed')studentClosed()
- if(d.type==='reveal')studentReveal(d)
- if(d.type==='winner')studentWinner(d)
+function connectToTeacher(r,name){
+ if(joinedOk||!peer||peer.destroyed)return;
+ joinAttempts++;
+ const el=document.getElementById('jerr');
+ if(el)el.innerHTML='<div class="phase">Conectando con la sala… intento '+joinAttempts+'/8</div>';
+ try{
+   if(sConn){try{sConn.close()}catch(e){}}
+   sConn=peer.connect('ee2-'+r.toLowerCase(),{reliable:true,serialization:'json'});
+   let opened=false;
+   const timeout=setTimeout(()=>{if(!opened&&!joinedOk){try{sConn.close()}catch(e){}scheduleJoinRetry(r,name)}},3500);
+   sConn.on('open',()=>{opened=true;clearTimeout(timeout);sConn.send({type:'join',name})});
+   sConn.on('data',studentData);
+   sConn.on('error',()=>{clearTimeout(timeout);if(!joinedOk)scheduleJoinRetry(r,name)});
+   sConn.on('close',()=>{clearTimeout(timeout);if(!joinedOk)scheduleJoinRetry(r,name)})
+ }catch(e){scheduleJoinRetry(r,name)}
 }
-function shell(inner){root.innerHTML=`<div class="studentApp"><div class="studentTop"><div class="studentWho"><div class="avatar">${initials(sName)}</div><div><b>${esc(sName)}</b><span>Sala ${room}</span></div></div><div class="scorePill">${sScore} pts</div></div><div class="studentScreen">${inner}</div></div>`;icons()}
-function studentWait(){shell(`<div class="studentWait"><div class="big">✨</div><h2>Ya estás dentro</h2><p>Espera a que se abra la siguiente pregunta.</p></div>`)}
-function studentQuestion(d){
- shell(`<div class="studentQ"><div class="qtop"><span class="qbadge">Ronda ${d.round} · ${d.index}/${d.total}</span></div><div class="context">${d.q.ctx}</div><p class="qtext">${d.q.q}</p><div class="lockMsg" id="lock">Lee primero · responde en 3,5 s</div><div class="options">${d.q.opts.map((o,i)=>`<button class="opt" data-so="${i}" disabled><span class="letter">${String.fromCharCode(65+i)}</span><span>${o}</span></button>`).join('')}</div></div>`);
- clearInterval(readInt);const t=Date.now();readInt=setInterval(()=>{const r=Math.max(0,(d.minRead||3500)-(Date.now()-t)),m=document.getElementById('lock');if(m)m.textContent=r>0?'Lee primero · responde en '+(r/1000).toFixed(1)+' s':'¡Ahora!';if(r<=0){clearInterval(readInt);document.querySelectorAll('[data-so]').forEach(b=>{b.disabled=false;b.onclick=()=>sendAnswer(+b.dataset.so)})}},100)
+function scheduleJoinRetry(r,name){
+ if(joinedOk)return;
+ clearTimeout(joinTimer);
+ if(joinAttempts>=8){showJoinError('No encontramos esa sala. Comprueba que el docente la tenga abierta y que el código sea correcto.');return}
+ joinTimer=setTimeout(()=>connectToTeacher(r,name),900)
 }
-function sendAnswer(choice){document.querySelectorAll('[data-so]').forEach(b=>{b.disabled=true;b.classList.toggle('chosen',+b.dataset.so===choice)});sConn?.send({type:'answer',choice});document.getElementById('lock').textContent='Respuesta enviada ✓'}
-function studentClosed(){shell(`<div class="studentWait"><div class="big">💬</div><h2>Votación cerrada</h2><p>Ahora viene la discusión del curso.</p></div>`)}
-function studentReveal(d){shell(`<div class="studentResult"><div class="icon">💡</div><h2>Respuesta ${String.fromCharCode(65+d.correct)}</h2><p>${d.explain}</p></div>`)}
-function studentWinner(d){if(d.name===sName){sScore+=d.score||0;shell(`<div class="studentResult"><div class="icon">🏆</div><h2>¡Ganaste esta pregunta!</h2><p>Fuiste la respuesta correcta más rápida.</p><div class="scorePill" style="display:inline-block;margin-top:10px">+${d.score||0} pts</div></div>`)}else shell(`<div class="studentResult"><div class="icon">👏</div><h2>${d.name?esc(d.name)+' ganó esta pregunta':'Esta pregunta quedó sin ganadora'}</h2><p>${d.name?'Fue la respuesta correcta más rápida.':'No hubo respuestas correctas.'}</p></div>`)}
+function showJoinError(msg){
+ const el=document.getElementById('jerr');
+ if(el)el.innerHTML='<div class="errorMsg">'+msg+'<br><button class="btn secondary" style="margin-top:9px" onclick="joinRoom()">Reintentar</button></div>'
+}`;
 
-const params=new URLSearchParams(location.search);
-if(params.get('mode')==='student')studentJoinScreen((params.get('room')||'').toUpperCase());else roleStart();
+    src=src.slice(0,start)+newStudent+src.slice(end);
+    src=src.replace(
+      "if(d.type==='joined'){sName=d.name;studentWait()}",
+      "if(d.type==='joined'){joinedOk=true;clearTimeout(joinTimer);sName=d.name;studentWait()}"
+    );
 
-const obs=new MutationObserver(()=>{if(document.getElementById('qr'))setTimeout(renderQR,50)});obs.observe(root,{childList:true,subtree:true});
-</script></body></html>
+    // Base URL: los enlaces relativos y la URL del QR deben seguir apuntando a GitHub Pages.
+    const base='<base href="https://fabianpulgaru-dev.github.io/tallerobjetivosinvestigacion/">';
+    src=src.replace('<head>','<head>'+base);
+
+    document.open();
+    document.write(src);
+    document.close();
+  }catch(err){
+    document.getElementById('status').innerHTML='<b>No se pudo cargar la actividad.</b><br><small>'+String(err.message||err)+'</small>';
+  }
+})();
+</script>
+</body>
+</html>
